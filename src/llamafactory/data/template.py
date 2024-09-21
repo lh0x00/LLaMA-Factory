@@ -1006,6 +1006,6 @@ _register_template(
     stop_words=["<|message:end|>"],
     replace_eos=True,
     mm_plugin=get_mm_plugin(
-        name="ghost_0x1o_tiny", image_token="<|vision:image|>", video_token="<|vision:video|>"
+        name="ghost_0x1o_tiny", image_token="<|image_pad|>", video_token="<|video_pad|>"
     ),
 )
