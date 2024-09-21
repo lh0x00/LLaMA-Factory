@@ -1963,3 +1963,15 @@ register_model_group(
     },
     template="zephyr",
 )
+
+
+register_model_group(
+    models={
+        "ghost-0x1o-tiny-base": {
+            DownloadSource.DEFAULT: "lamhieu/ghost-0x1o-tiny-base",
+            DownloadSource.MODELSCOPE: "lamhieu/ghost-0x1o-tiny-base",
+        },
+    },
+    template="ghost_0x1o_tiny",
+    vision=True,
+)

@@ -353,7 +353,7 @@ def get_template_and_fix_tokenizer(tokenizer: "PreTrainedTokenizer", data_args: 
     r"""
     Gets chat template and fixes the tokenizer.
     """
-    if data_args.template in ["llava", "paligemma", "qwen2_vl"]:
+    if data_args.template in ["llava", "paligemma", "qwen2_vl", "ghost_0x1o_tiny"]:
         require_version(
             "transformers>=4.45.0.dev0", "To fix: pip install git+https://github.com/huggingface/transformers.git"
         )
@@ -983,4 +983,29 @@ _register_template(
     name="ziya",
     format_user=StringFormatter(slots=["<human>:{{content}}\n<bot>:"]),
     format_separator=EmptyFormatter(slots=["\n"]),
+)
+
+
+_register_template(
+    name="ghost_0x1o_tiny",
+    format_user=StringFormatter(
+        slots=[
+            "<|message:begin|>user\n{{content}}<|message:end|>\n<|message:begin|>assistant\n"
+        ]
+    ),
+    format_system=StringFormatter(
+        slots=["<|message:begin|>system\n{{content}}<|message:end|>\n"]
+    ),
+    format_observation=StringFormatter(
+        slots=[
+            "<|message:begin|>tool\n{{content}}<|message:end|>\n<|message:begin|>assistant\n"
+        ]
+    ),
+    format_separator=EmptyFormatter(slots=["\n"]),
+    default_system="You are a helpful assistant.",
+    stop_words=["<|message:end|>"],
+    replace_eos=True,
+    mm_plugin=get_mm_plugin(
+        name="ghost_0x1o_tiny", image_token="<|vision:image|>", video_token="<|vision:video|>"
+    ),
 )
