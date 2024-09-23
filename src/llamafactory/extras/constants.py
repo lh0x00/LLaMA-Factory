@@ -47,7 +47,7 @@ FILEEXT2TYPE = {
 
 IGNORE_INDEX = -100
 
-IMAGE_PLACEHOLDER = "<image>"
+IMAGE_PLACEHOLDER = "<|image|>"
 
 LAYERNORM_NAMES = {"norm", "ln"}
 
@@ -95,7 +95,7 @@ SUPPORTED_CLASS_FOR_BLOCK_DIAG_ATTN = {
 
 SUPPORTED_CLASS_FOR_S2ATTN = {"llama"}
 
-VIDEO_PLACEHOLDER = "<video>"
+VIDEO_PLACEHOLDER = "<|video|>"
 
 V_HEAD_WEIGHTS_NAME = "value_head.bin"
 
