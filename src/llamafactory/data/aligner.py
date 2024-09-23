@@ -163,7 +163,7 @@ def convert_sharegpt(
     for turn_idx, message in enumerate(messages):
         if message[dataset_attr.role_tag] not in accept_tags[turn_idx % 2]:
             # logger.warning("Invalid role tag in {}.".format(messages))
-            logger.warning("Invalid role tag in {0}, {1}.".format(example["hash"] if "hash" in example else "-"), message[dataset_attr.role_tag])
+            logger.warning("Invalid role tag in {}, case 1.".format(example["hash"] if "hash" in example else "-"))
             if show_examples_warning < 5:
                 logger.warning("Example 1: {}".format(messages))
                 show_examples_warning += 1
@@ -176,8 +176,7 @@ def convert_sharegpt(
     if (not dataset_attr.ranking and len(aligned_messages) % 2 != 0) or (
         dataset_attr.ranking and len(aligned_messages) % 2 == 0
     ):
-        # logger.warning("Invalid message count in {}.".format(messages))
-        logger.warning("Invalid role tag in {}.".format(example["hash"] if "hash" in example else "-"))
+        logger.warning("Invalid role tag in {}, case 2.".format(example["hash"] if "hash" in example else "-"))
         if show_examples_warning < 5:
             logger.warning("Example 2: {}".format(messages))
             show_examples_warning += 1
