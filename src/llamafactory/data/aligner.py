@@ -127,6 +127,7 @@ def convert_alpaca(
     }
     return output
 
+show_examples_warning = 0
 
 def convert_sharegpt(
     example: Dict[str, Any],
@@ -159,7 +160,6 @@ def convert_sharegpt(
 
     aligned_messages = []
     broken_data = False
-    show_examples_warning = 0
     for turn_idx, message in enumerate(messages):
         if message[dataset_attr.role_tag] not in accept_tags[turn_idx % 2]:
             # logger.warning("Invalid role tag in {}.".format(messages))
