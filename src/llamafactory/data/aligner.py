@@ -127,8 +127,6 @@ def convert_alpaca(
     }
     return output
 
-show_examples_warning = 0
-
 def convert_sharegpt(
     example: Dict[str, Any],
     dataset_attr: "DatasetAttr",
@@ -164,9 +162,6 @@ def convert_sharegpt(
         if message[dataset_attr.role_tag] not in accept_tags[turn_idx % 2]:
             # logger.warning("Invalid role tag in {}.".format(messages))
             logger.warning("Invalid role tag in {}, case 1.".format(example["hash"] if "hash" in example else "-"))
-            if show_examples_warning < 5:
-                logger.warning("Example 1: {}".format(messages))
-                show_examples_warning += 1
             broken_data = True
 
         aligned_messages.append(
@@ -177,9 +172,6 @@ def convert_sharegpt(
         dataset_attr.ranking and len(aligned_messages) % 2 == 0
     ):
         logger.warning("Invalid role tag in {}, case 2.".format(example["hash"] if "hash" in example else "-"))
-        if show_examples_warning < 5:
-            logger.warning("Example 2: {}".format(messages))
-            show_examples_warning += 1
         broken_data = True
 
     if dataset_attr.kto_tag and isinstance(example[dataset_attr.kto_tag], bool):  # kto example
