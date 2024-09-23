@@ -622,5 +622,33 @@
       "prompt": "content"
     },
     "folder": "python"
+  },
+  "xllms_frozen_base": {
+    "hf_hub_url": "lamhieu/xllms_frozen_base",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
+  "xllms_frozen_buds": {
+    "hf_hub_url": "lamhieu/xllms_frozen_buds",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
   }
 }
