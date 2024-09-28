@@ -161,7 +161,7 @@ def convert_sharegpt(
     for turn_idx, message in enumerate(messages):
         if message[dataset_attr.role_tag] not in accept_tags[turn_idx % 2]:
             # logger.warning("Invalid role tag in {}.".format(messages))
-            logger.warning("Invalid role tag in {}, case 1.".format(example["hash"] if "hash" in example else "-"))
+            # logger.warning("Invalid role tag in {}, case 1.".format(example["hash"] if "hash" in example else "-"))
             broken_data = True
 
         aligned_messages.append(
@@ -171,7 +171,7 @@ def convert_sharegpt(
     if (not dataset_attr.ranking and len(aligned_messages) % 2 != 0) or (
         dataset_attr.ranking and len(aligned_messages) % 2 == 0
     ):
-        logger.warning("Invalid role tag in {}, case 2.".format(example["hash"] if "hash" in example else "-"))
+        # logger.warning("Invalid role tag in {}, case 2.".format(example["hash"] if "hash" in example else "-"))
         broken_data = True
 
     if dataset_attr.kto_tag and isinstance(example[dataset_attr.kto_tag], bool):  # kto example
@@ -192,7 +192,7 @@ def convert_sharegpt(
             chosen[dataset_attr.role_tag] not in accept_tags[-1]
             or rejected[dataset_attr.role_tag] not in accept_tags[-1]
         ):
-            logger.warning("Invalid role tag in {}.".format([chosen, rejected]))
+            # logger.warning("Invalid role tag in {}.".format([chosen, rejected]))
             broken_data = True
 
         prompt = aligned_messages
@@ -205,7 +205,7 @@ def convert_sharegpt(
         response = aligned_messages[-1:]
 
     if broken_data:
-        logger.warning("Skipping this abnormal example.")
+        # logger.warning("Skipping this abnormal example.")
         prompt, response = [], []
 
     convert_images = partial(_convert_images, dataset_attr=dataset_attr, data_args=data_args)
