@@ -637,6 +637,20 @@
       "system_tag": "system"
     }
   },
+  "xllms_frozen_perf": {
+    "hf_hub_url": "lamhieu/xllms_frozen_perf",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant",
+      "system_tag": "system"
+    }
+  },
   "xllms_frozen_buds": {
     "hf_hub_url": "lamhieu/xllms_frozen_buds",
     "formatting": "sharegpt",
